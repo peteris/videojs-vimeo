@@ -51,6 +51,8 @@ videojs.Vimeo = videojs.MediaTechController.extend({
     this.player_el_.insertBefore(this.el_, this.player_el_.firstChild);
 
     var protocol = (document.location.protocol === 'file:')?'http:': document.location.protocol;
+    // Always use HTTPS to avoid issues with autoplay in Chrome
+    protocol = "https:";
     this.baseUrl = protocol + '//player.vimeo.com/video/';
 
     this.vimeo = {};
